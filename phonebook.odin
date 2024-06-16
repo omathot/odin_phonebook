@@ -65,9 +65,11 @@ remove_contact :: proc(book: ^Phonebook, idx: int) {
 		str = strings.to_lower(str)
 		switch str {
 			case "y", "yes":
+				fmt.printf("Removing [%v] from Phonebook!\n", book.entries[idx].name)
 				ordered_remove(&book.entries, idx)
 				return
 			case "n", "no":
+				fmt.println("Cancelling...")
 				return
 		}
 	}
